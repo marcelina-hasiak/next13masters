@@ -9,8 +9,20 @@ const config: Config = {
 	theme: {
 		extend: {
 			backgroundImage: {
-				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-				"gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+				"gradient-radial":
+					"radial-gradient(var(--tw-gradient-stops))",
+				"gradient-conic":
+					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+			},
+			colors: {
+				cyan: {
+					DEFAULT: "#00f0ff",
+				},
+			},
+
+			screens: {
+				xxsm: "372px",
+				xsm: "580px",
 			},
 		},
 	},
