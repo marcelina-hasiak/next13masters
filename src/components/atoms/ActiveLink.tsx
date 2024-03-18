@@ -1,24 +1,43 @@
 "use client";
 
-import Link from "next/link";
+import Link, { type LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
-import type { Route } from "next";
-import { type ReactNode } from "react";
+import { type RouteType } from "next/dist/lib/load-custom-routes";
+import Image from "next/image";
 import { orbitron } from "@/app/fonts";
 
-export const ActiveLink = <T extends string>({
-	activeClassName,
-	href,
-	children,
-	label,
-}: {
-	activeClassName?: string;
+type ActiveLinkProps<Href> = {
+	className?: string;
 	label?: string;
-	href: T | Route<T> | URL;
-	children: ReactNode;
-}) => {
+	exact?: boolean;
+	children: React.ReactNode;
+	activeClassName?: string;
+} & LinkProps<Href>;
+
+export const ActiveLink = <Href extends RouteType>(
+	props: ActiveLinkProps<Href>,
+) => {
 	const pathname = usePathname();
-	const isActive = pathname === href;
+	const {
+		children,
+		href,
+		exact = true,
+		activeClassName,
+		label,
+	} = props;
+
+	const isPathnameEqual =
+		typeof href === "string"
+			? pathname === href
+			: pathname === href.pathname;
+
+	const isPathnameStartsWith =
+		typeof href === "string"
+			? pathname.startsWith(href + "/")
+			: pathname.startsWith(href.pathname + "/");
+
+	const isActive =
+		isPathnameEqual || (!exact && isPathnameStartsWith);
 
 	return (
 		<div
@@ -29,7 +48,7 @@ export const ActiveLink = <T extends string>({
 			}`}
 		>
 			{label && (
-				<img
+				<Image
 					width={16}
 					height={16}
 					src={`/icons/${label}.svg`}

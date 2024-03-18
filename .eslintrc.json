@@ -43,9 +43,6 @@
 
 		"import/no-duplicates": ["error", { "prefer-inline": true }],
 
-		// false negatives
-		"import/namespace": ["off"],
-
 		// we allow empty interfaces
 		"no-empty-pattern": "off",
 		"@typescript-eslint/no-empty-interface": "off",
@@ -63,12 +60,6 @@
 		"@typescript-eslint/no-unused-vars": [
 			"error",
 			{ "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
-		],
-
-		// numbers and booleans are fine in template strings
-		"@typescript-eslint/restrict-template-expressions": [
-			"error",
-			{ "allowNumber": true, "allowBoolean": true }
 		]
 	},
 	"overrides": [

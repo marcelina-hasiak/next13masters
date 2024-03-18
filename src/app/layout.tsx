@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { shareTechMono, sarpanch } from "@/app/fonts";
 import { Navigation } from "@/components/molecules/Navigation";
+import { Footer } from "@/components/atoms/Footer";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -30,6 +31,7 @@ export default function RootLayout({
 				</aside>
 				<Navigation />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

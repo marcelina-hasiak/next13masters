@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { type IProduct } from "../types";
 import { formatPrice } from "@/utils";
 import { orbitron } from "@/app/fonts";
@@ -13,7 +14,7 @@ export const ProductDescription = ({
 		<>
 			<div className="flex items-start justify-between gap-2">
 				<h3 className={`${orbitron.className} uppercase`}>{name}</h3>
-				<img
+				<Image
 					width={16}
 					height={16}
 					src={`/icons/${category}.svg`}
@@ -27,7 +28,12 @@ export const ProductDescription = ({
 				</p>
 				<p className="flex text-xs leading-5">
 					{rating}
-					<img width={8} height={8} src="/icons/star.svg" />
+					<Image
+						width={8}
+						height={8}
+						src="/icons/star.svg"
+						alt="product rating"
+					/>
 				</p>
 			</div>
 		</>
