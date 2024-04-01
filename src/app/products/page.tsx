@@ -1,5 +1,6 @@
 import { ProductList } from "@/components/organisms/ProductList";
 import { type IProduct } from "@/components/types";
+import { css } from "@/styled-system/css";
 
 const products: IProduct[] = [
 	{
@@ -72,8 +73,20 @@ const products: IProduct[] = [
 
 export default function ProductsPage() {
 	return (
-		<section className="sm:[width:fit-content]">
-			<h2 className="w-3/4 border-2 border-solid border-cyan bg-black py-2 pl-6 pr-12 lowercase text-cyan">
+		<section className={css({ sm: { w: "fit.content" } })}>
+			<h2
+				className={css({
+					w: "3/4",
+					borderWidth: "2px",
+					borderStyle: "solid",
+					bgColor: "black",
+					pt: "2",
+					pb: "2",
+					pl: "6",
+					pr: "12",
+					textTransform: "lowercase",
+				})}
+			>
 				New products
 			</h2>
 			<ProductList products={products} />

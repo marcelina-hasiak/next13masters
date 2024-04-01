@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { shareTechMono, sarpanch } from "@/app/fonts";
-import { Navigation } from "@/components/molecules/Navigation";
+import { shareTechMono, sarpanch, orbitron } from "@/app/fonts";
 import { Footer } from "@/components/atoms/Footer";
+import { Header } from "@/components/organisms/Header";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -15,21 +15,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body
-				className={`${shareTechMono.className} bg-black p-4 leading-5 xsm:pr-8`}
-			>
-				<h1
-					className={`${sarpanch.className} mb-2 text-5xl font-bold uppercase sm:mb-4 sm:text-7xl`}
-				>
-					Cyberware
-				</h1>
-				<aside className="mb-8 border border-gray-950 bg-cyan px-3 py-2 text-xs sm:max-w-2xl sm:text-sm">
-					Step into the future of style with our cutting-edge
-					cyberware collection. Upgrade your look, upgrade your life –
-					shop the future, today!
-				</aside>
-				<Navigation />
+		<html
+			lang="en"
+			className={`${shareTechMono.variable} ${sarpanch.variable} ${orbitron.variable}`}
+		>
+			<body className={shareTechMono.className}>
+				<Header />
 				{children}
 				<Footer />
 			</body>

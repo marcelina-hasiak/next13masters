@@ -1,31 +1,53 @@
 "use client";
 
-import Link, { type LinkProps } from "next/link";
+import Link from "next/link";
+import type { Route } from "next";
 import { usePathname } from "next/navigation";
-import { type RouteType } from "next/dist/lib/load-custom-routes";
 import Image from "next/image";
-import { orbitron } from "@/app/fonts";
+import { type ReactNode } from "react";
+import { styled } from "@/styled-system/jsx";
 
-type ActiveLinkProps<Href> = {
-	className?: string;
+type ActiveLinkProps<T extends string> = {
+	href: Route<T> | URL;
+	withIcon?: boolean;
 	label?: string;
+	children?: ReactNode;
 	exact?: boolean;
-	children: React.ReactNode;
-	activeClassName?: string;
-} & LinkProps<Href>;
+};
 
-export const ActiveLink = <Href extends RouteType>(
-	props: ActiveLinkProps<Href>,
-) => {
+const ActiveLinkStyled = styled(Link, {
+	base: {
+		display: "flex",
+		gap: "2",
+		padding: "1",
+		fontFamily: "var(--orbitron)",
+		borderWidth: "1px",
+	},
+	variants: {
+		status: {
+			active: {
+				borderColor: "black",
+				backgroundColor: "#00000021",
+			},
+			inactive: {
+				borderColor: "transparent",
+				backgroundColor: "transparent",
+			},
+		},
+	},
+	defaultVariants: {
+		status: "inactive",
+	},
+});
+
+export const ActiveLink = <T extends string>({
+	href,
+	withIcon = false,
+	label = "",
+	children,
+	exact = false,
+}: ActiveLinkProps<T>) => {
 	const pathname = usePathname();
-	const {
-		children,
-		href,
-		exact = true,
-		activeClassName,
-		label,
-	} = props;
-
 	const isPathnameEqual =
 		typeof href === "string"
 			? pathname === href
@@ -40,14 +62,12 @@ export const ActiveLink = <Href extends RouteType>(
 		isPathnameEqual || (!exact && isPathnameStartsWith);
 
 	return (
-		<div
-			className={`flex gap-2 border px-2 py-1 ${
-				isActive
-					? `border-black bg-black bg-opacity-20 ${activeClassName}`
-					: "border-transparent bg-transparent"
-			}`}
+		<ActiveLinkStyled
+			href={href as Route}
+			aria-current={isActive}
+			status={isActive ? "active" : "inactive"}
 		>
-			{label && (
+			{withIcon && (
 				<Image
 					width={16}
 					height={16}
@@ -55,13 +75,7 @@ export const ActiveLink = <Href extends RouteType>(
 					alt={`${label} product category`}
 				/>
 			)}
-			<Link
-				href={href}
-				className={`${orbitron.className}`}
-				aria-current={isActive}
-			>
-				{children}
-			</Link>
-		</div>
+			{label || children}
+		</ActiveLinkStyled>
 	);
 };

@@ -1,5 +1,6 @@
 import { ProductItem } from "../molecules/ProductItem";
 import { type IProduct } from "../types";
+import { css } from "@/styled-system/css";
 
 export const ProductList = ({
 	products,
@@ -9,7 +10,22 @@ export const ProductList = ({
 	return (
 		<ul
 			data-testid="products-list"
-			className="3xsm:grid-cols-2 grid justify-items-start gap-6 bg-black bg-opacity-20 py-6 pl-6 pr-12 [clip-path:polygon(90%_0,_100%_5%,_100%_100%,_0_100%,_0_0)] sm:grid-cols-3 sm:[clip-path:polygon(95%_0,_100%_5%,_100%_100%,_0_100%,_0_0)] md:grid-cols-4"
+			className={css({
+				display: "grid",
+				justifyItems: "start",
+				gap: "6",
+				bgColor: "black",
+				pt: "6",
+				pb: "6",
+				pl: "6",
+				pr: "12",
+				clipPath: "polygon(90% 0, 100% 5%, 100% 100%, 0 100%, 0 0)",
+				sm: {
+					gridTemplateColumns: "cols.3",
+					clipPath: "polygon(95% 0, 100% 5%, 100% 100%, 0 100%, 0 0)",
+				},
+				md: { gridTemplateColumns: "cols.4" },
+			})}
 		>
 			{products.map((product) => (
 				<ProductItem key={product.id} product={product} />
