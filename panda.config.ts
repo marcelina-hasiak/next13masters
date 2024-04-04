@@ -24,14 +24,10 @@ export default defineConfig({
 	globalCss: {
 		body: {
 			color: "#000",
+			// backgroundColor: "#000",
 			fontFamily: "var(--share-tech-mono)",
-			backgroundImage: 'url("/bg-lg.webp")',
-			backgroundSize: "cover",
-			backgroundRepeat: "no-repeat",
-			backgroundPosition: "center bottom",
-			minHeight: "100vh",
-			minHeight: "100dvh",
-			padding: "4",
+			display: "flex",
+			flexDirection: "column",
 		},
 	},
 

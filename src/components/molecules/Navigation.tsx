@@ -25,7 +25,8 @@ export const Navigation = () => {
 			className={css({
 				mb: "8",
 				display: "flex",
-				gap: "4",
+				alignItems: "flex-start",
+				gap: "1",
 				textTransform: "uppercase",
 				sm: { justifyContent: "flex-end", fontSize: "lg" },
 			})}
@@ -37,8 +38,11 @@ export const Navigation = () => {
 				className={css({
 					display: "grid",
 					gridTemplateColumns: "repeat(2, minmax(max-content, 1fr))",
-					gridColumnGap: "4",
-					gridRowGap: "1",
+					gridGap: "1",
+					sm: {
+						gridTemplateColumns:
+							"repeat(3, minmax(max-content, 1fr))",
+					},
 				})}
 			>
 				{colletionItems.map(({ href, label, withIcon }) => (

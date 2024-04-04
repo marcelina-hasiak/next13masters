@@ -19,7 +19,7 @@ const ActiveLinkStyled = styled(Link, {
 	base: {
 		display: "flex",
 		gap: "2",
-		padding: "1",
+		p: "1",
 		fontFamily: "var(--orbitron)",
 		borderWidth: "1px",
 	},
