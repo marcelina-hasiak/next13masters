@@ -1,8 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { shareTechMono, sarpanch, orbitron } from "@/app/fonts";
-import { Footer } from "@/components/atoms/Footer";
-import { Header } from "@/components/organisms/Header";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -19,11 +17,7 @@ export default function RootLayout({
 			lang="en"
 			className={`${shareTechMono.variable} ${sarpanch.variable} ${orbitron.variable}`}
 		>
-			<body className={shareTechMono.className}>
-				<Header />
-				{children}
-				<Footer />
-			</body>
+			<body>{children}</body>
 		</html>
 	);
 }
