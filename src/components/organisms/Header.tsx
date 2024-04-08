@@ -1,11 +1,11 @@
 import { Navigation } from "@/components/molecules/Navigation";
-import { Title } from "@/components/atoms/Title";
+import { BrandLogo } from "@/components/atoms/BrandLogo";
 import { Aside } from "@/components/atoms/Aside";
 
 export const Header = () => {
 	return (
 		<header>
-			<Title>Cyberware</Title>
+			<BrandLogo />
 			<Aside />
 			<Navigation />
 		</header>

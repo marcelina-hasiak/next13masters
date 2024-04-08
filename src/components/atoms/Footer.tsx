@@ -1,58 +1,72 @@
 import Image from "next/image";
-import { ActiveLink } from "./ActiveLink";
-import { styled } from "@/styled-system/jsx";
+import Link from "next/link";
+import type { Route } from "next";
 import { css } from "@/styled-system/css";
 
-const FooterStyled = styled("footer", {
-	base: {
-		backgroundColor: "#000000",
-		color: "#ffffff",
-		p: "8",
+const footerStyles = css({
+	backgroundColor: "#000000",
+	color: "#ffffff",
+	p: "2rem",
+	display: "flex",
+	flexDirection: "column",
+	gap: { base: "2rem", "2xsm": "3rem" },
+});
+
+const linksContainerStyles = css({
+	display: "flex",
+	flexDirection: "column",
+	alignItems: "center",
+	"2xsm": {
+		flexDirection: "row",
+		gap: "2rem",
+		justifyContent: "flex-start",
 	},
 });
 
+const textStyles = css({
+	display: "flex",
+	alignItems: "center",
+	flexWrap: "wrap",
+	justifyContent: { base: "center", "2xsm": "flex-end" },
+	fontSize: "0.75rem",
+});
+
+const footerLinks = [
+	{
+		href: "/terms-of-use",
+		label: "terms of use",
+	},
+	{
+		href: "/return-policy",
+		label: "return policy",
+	},
+	{
+		href: "/privacy-policy",
+		label: "privacy policy",
+	},
+];
+
 export const Footer = () => {
 	return (
-		<FooterStyled>
-			<div
-				className={css({
-					display: "flex",
-					flexDirection: "column",
-					gap: "12",
-				})}
-			>
-				<ul className={css({ display: "flex", gap: "8" })}>
-					<li>
-						<ActiveLink href="/terms-of-use" label="terms of use" />
+		<footer className={footerStyles}>
+			<ul className={linksContainerStyles}>
+				{footerLinks.map(({ href, label }) => (
+					<li key={label}>
+						<Link href={href as Route}>{label}</Link>
 					</li>
-					<li>
-						<ActiveLink href="/return-policy" label="return policy" />
-					</li>
-					<li>
-						<ActiveLink
-							href="/privacy-policy"
-							label="privacy policy"
-						/>
-					</li>
-				</ul>
-				<p
-					className={css({
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "flex-end",
-					})}
-				>
-					Developed with
-					<Image
-						className={css({ mx: "1px" })}
-						src="heart.svg"
-						alt="love"
-						height="24"
-						width="24"
-					/>
-					by Marcelina, 2024
-				</p>
-			</div>
-		</FooterStyled>
+				))}
+			</ul>
+			<p className={textStyles}>
+				Developed with
+				<Image
+					className={css({ mx: "1px" })}
+					src="heart.svg"
+					alt="love"
+					height="24"
+					width="24"
+				/>
+				by Marcelina, 2024
+			</p>
+		</footer>
 	);
 };

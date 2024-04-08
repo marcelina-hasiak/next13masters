@@ -1,25 +1,22 @@
-import { styled } from "@/styled-system/jsx";
+import { css } from "@/styled-system/css";
 
-const AsideStyled = styled("aside", {
-	base: {
-		marginBottom: "8",
-		border: "1px solid #030712",
-		backgroundColor: "#00f0ff",
-		px: "3",
-		py: "2",
-		fontSize: "xs",
-		sm: { maxWidth: "2xl", fontSize: "sm" },
-	},
+const asideStyles = css({
+	border: "1px solid #030712",
+	backgroundColor: "#00f0ff",
+	p: "0.5rem 0.75rem",
+	marginBottom: "2rem",
+	fontSize: { base: "0.75rem", xsm: "1rem" },
+	md: { maxWidth: "40rem" },
 });
 
 export const Aside = () => {
 	return (
-		<AsideStyled>
+		<aside className={asideStyles}>
 			<p>
 				Step into the future of style with our cutting-edge cyberware
 				collection. Upgrade your look, upgrade your life – shop the
 				future, today!
 			</p>
-		</AsideStyled>
+		</aside>
 	);
 };

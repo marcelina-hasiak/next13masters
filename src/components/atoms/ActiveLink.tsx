@@ -7,14 +7,6 @@ import Image from "next/image";
 import { type ReactNode } from "react";
 import { styled } from "@/styled-system/jsx";
 
-type ActiveLinkProps<T extends string> = {
-	href: Route<T> | URL;
-	withIcon?: boolean;
-	label?: string;
-	children?: ReactNode;
-	exact?: boolean;
-};
-
 const ActiveLinkStyled = styled(Link, {
 	base: {
 		display: "flex",
@@ -39,6 +31,14 @@ const ActiveLinkStyled = styled(Link, {
 		status: "inactive",
 	},
 });
+
+type ActiveLinkProps<T extends string> = {
+	href: Route<T> | URL;
+	withIcon?: boolean;
+	label?: string;
+	children?: ReactNode;
+	exact?: boolean;
+};
 
 export const ActiveLink = <T extends string>({
 	href,

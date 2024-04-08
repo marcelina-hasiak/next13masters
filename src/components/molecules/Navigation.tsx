@@ -2,6 +2,24 @@ import type { Route } from "next";
 import { css } from "@/styled-system/css";
 import { ActiveLink } from "@/components/atoms/ActiveLink";
 
+const navigationStyles = css({
+	mb: "2rem",
+	display: "flex",
+	alignItems: "flex-start",
+	gap: "0.25rem",
+	textTransform: "uppercase",
+	sm: { justifyContent: "flex-end", fontSize: "1.125rem" },
+});
+
+const collectionWrapperStyles = css({
+	display: "grid",
+	gridTemplateColumns: {
+		base: "repeat(2, minmax(max-content, 1fr))",
+		sm: "repeat(3, minmax(max-content, 1fr))",
+	},
+	gridGap: "0.25rem",
+});
+
 const navigationItems = {
 	products: {
 		href: "/products",
@@ -21,30 +39,11 @@ const navigationItems = {
 export const Navigation = () => {
 	const { products, colletionItems } = navigationItems;
 	return (
-		<nav
-			className={css({
-				mb: "8",
-				display: "flex",
-				alignItems: "flex-start",
-				gap: "1",
-				textTransform: "uppercase",
-				sm: { justifyContent: "flex-end", fontSize: "lg" },
-			})}
-		>
+		<nav className={navigationStyles}>
 			<ActiveLink href={products.href as Route} exact={false}>
 				{products.label}
 			</ActiveLink>
-			<div
-				className={css({
-					display: "grid",
-					gridTemplateColumns: "repeat(2, minmax(max-content, 1fr))",
-					gridGap: "1",
-					sm: {
-						gridTemplateColumns:
-							"repeat(3, minmax(max-content, 1fr))",
-					},
-				})}
-			>
+			<div className={collectionWrapperStyles}>
 				{colletionItems.map(({ href, label, withIcon }) => (
 					<ActiveLink
 						key={label}

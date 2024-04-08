@@ -16,7 +16,10 @@ export default defineConfig({
 	// Useful for theme customization
 	theme: {
 		extend: {
-			breakpoints: {},
+			breakpoints: {
+				"2xsm": "470px",
+				xsm: "520px",
+			},
 		},
 	},
 
@@ -24,10 +27,8 @@ export default defineConfig({
 	globalCss: {
 		body: {
 			color: "#000",
-			// backgroundColor: "#000",
+			backgroundColor: "#000",
 			fontFamily: "var(--share-tech-mono)",
-			display: "flex",
-			flexDirection: "column",
 		},
 	},
 
