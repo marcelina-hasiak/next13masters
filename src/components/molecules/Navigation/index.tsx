@@ -1,30 +1,14 @@
 import type { Route } from "next";
-import { css } from "@/styled-system/css";
+import {
+	navigationStyles,
+	collectionWrapperStyles,
+} from "./Navigation.styles";
 import { ActiveLink } from "@/components/atoms/ActiveLink";
-
-const navigationStyles = css({
-	mb: "2rem",
-	display: "flex",
-	alignItems: "flex-start",
-	gap: "0.25rem",
-	textTransform: "uppercase",
-	sm: { justifyContent: "flex-end", fontSize: "1.125rem" },
-});
-
-const collectionWrapperStyles = css({
-	display: "grid",
-	gridTemplateColumns: {
-		base: "repeat(2, minmax(max-content, 1fr))",
-		sm: "repeat(3, minmax(max-content, 1fr))",
-	},
-	gridGap: "0.25rem",
-});
 
 const navigationItems = {
 	products: {
 		href: "/products",
 		label: "all",
-		withIcon: true,
 	},
 	colletionItems: [
 		{ href: "/collection/health", label: "health", withIcon: true },

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Header } from "@/components/organisms/Header";
 import { Footer } from "@/components/atoms/Footer";
 import { Background } from "@/components/atoms/Background";
-import { vstack } from "@/styled-system/patterns";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -15,12 +14,12 @@ export default function WithNavigationLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<main className={vstack({ alignItems: "stretch" })}>
+		<>
 			<Background>
 				<Header />
-				{children}
+				<main>{children}</main>
 			</Background>
 			<Footer />
-		</main>
+		</>
 	);
 }

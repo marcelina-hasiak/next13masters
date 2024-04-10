@@ -1,36 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import type { Route } from "next";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { type ReactNode } from "react";
-import { styled } from "@/styled-system/jsx";
-
-const ActiveLinkStyled = styled(Link, {
-	base: {
-		display: "flex",
-		gap: "2",
-		p: "1",
-		fontFamily: "var(--orbitron)",
-		borderWidth: "1px",
-	},
-	variants: {
-		status: {
-			active: {
-				borderColor: "black",
-				backgroundColor: "#00000021",
-			},
-			inactive: {
-				borderColor: "transparent",
-				backgroundColor: "transparent",
-			},
-		},
-	},
-	defaultVariants: {
-		status: "inactive",
-	},
-});
+import type { Route } from "next";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { ActiveLinkStyled } from "./ActiveLink.styles";
 
 type ActiveLinkProps<T extends string> = {
 	href: Route<T> | URL;
@@ -39,6 +13,8 @@ type ActiveLinkProps<T extends string> = {
 	children?: ReactNode;
 	exact?: boolean;
 };
+
+// TODO: check exact prop
 
 export const ActiveLink = <T extends string>({
 	href,

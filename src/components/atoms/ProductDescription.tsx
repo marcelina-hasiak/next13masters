@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { type IProduct } from "../types";
+import { type IProduct } from "../../types";
 import { css } from "@/styled-system/css";
 
 import { formatPrice } from "@/utils";

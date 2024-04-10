@@ -1,11 +1,14 @@
 import { css } from "@/styled-system/css";
 
 const backgroundStyles = css({
+	display: "flex",
+	flexDirection: "column",
+	gap: "2rem",
 	backgroundImage: 'url("/bg-lg.webp")',
 	backgroundSize: "cover",
 	backgroundRepeat: "no-repeat",
 	backgroundPosition: "center bottom",
-	p: "1rem",
+	padding: "1rem 1rem 6rem",
 	minHeight: "100dvh",
 });
 

@@ -1,5 +1,5 @@
 import { ProductList } from "@/components/organisms/ProductList";
-import { type IProduct } from "@/components/types";
+import { type IProduct } from "@/types";
 import { css } from "@/styled-system/css";
 
 const products: IProduct[] = [

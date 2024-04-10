@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { VStack } from "@/styled-system/jsx";
 import { Footer } from "@/components/atoms/Footer";
 import { BrandLogoLink } from "@/components/atoms/BrandLogo";
-import { vstack } from "@/styled-system/patterns";
 import { Background } from "@/components/atoms/Background";
 
 export const metadata: Metadata = {
@@ -15,12 +15,16 @@ export default function WithNavigationLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<main className={vstack({ alignItems: "stretch" })}>
-			<Background>
-				<BrandLogoLink />
-				{children}
-			</Background>
+		<>
+			<main>
+				<Background>
+					<VStack gap="1rem">
+						<BrandLogoLink />
+						{children}
+					</VStack>
+				</Background>
+			</main>
 			<Footer />
-		</main>
+		</>
 	);
 }
