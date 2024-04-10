@@ -1,6 +1,6 @@
 import { Title } from "@/components/atoms/Title";
 import { ListOfTerms } from "@/components/atoms/ListOfTerms";
-import { type Term } from "@/types/Terms";
+import { type Term } from "@/types";
 
 const returnPolicy: Term[] = [
 	{
