@@ -34,7 +34,12 @@ export const Footer = () => {
 			</ul>
 			<p className={copyrightStyles}>
 				Developed with
-				<Image src="/heart.svg" alt="love" height="24" width="24" />
+				<Image
+					src="/icons/heart.svg"
+					alt="love"
+					height="24"
+					width="24"
+				/>
 				by Marcelina, 2024
 			</p>
 		</footer>

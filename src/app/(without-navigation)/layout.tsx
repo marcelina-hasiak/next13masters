@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { VStack } from "@/styled-system/jsx";
-import { Footer } from "@/components/atoms/Footer";
-import { BrandLogoLink } from "@/components/atoms/BrandLogo";
-import { Background } from "@/components/atoms/Background";
+import { Footer } from "@/components/Footer";
+import { BrandLogoLink } from "@/components/BrandLogo";
+import { Background } from "@/components/Background";
 
 export const metadata: Metadata = {
 	title: "Create Next App",

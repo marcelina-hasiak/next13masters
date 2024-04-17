@@ -3,7 +3,7 @@ import {
 	navigationStyles,
 	collectionWrapperStyles,
 } from "./Navigation.styles";
-import { ActiveLink } from "@/components/atoms/ActiveLink";
+import { ActiveLink } from "@/components/ActiveLink";
 
 const navigationItems = {
 	products: {

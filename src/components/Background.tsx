@@ -4,7 +4,10 @@ const backgroundStyles = css({
 	display: "flex",
 	flexDirection: "column",
 	gap: "2rem",
-	backgroundImage: 'url("/bg-lg.webp")',
+	backgroundImage: {
+		base: 'url("/bg-sm.webp")',
+		md: 'url("/bg-lg.webp")',
+	},
 	backgroundSize: "cover",
 	backgroundRepeat: "no-repeat",
 	backgroundPosition: "center bottom",

@@ -1,8 +1,7 @@
-import { ProductList } from "@/components/organisms/ProductList";
-import { type IProduct } from "@/types";
-import { css } from "@/styled-system/css";
+import { type Product } from "@/types";
+import { Products } from "@/components/Products";
 
-const products: IProduct[] = [
+const products: Product[] = [
 	{
 		id: "1",
 		name: "Kiroshi Optics",
@@ -72,24 +71,5 @@ const products: IProduct[] = [
 ];
 
 export default function ProductsPage() {
-	return (
-		<section className={css({ sm: { w: "fit.content" } })}>
-			<h2
-				className={css({
-					w: "3/4",
-					borderWidth: "2px",
-					borderStyle: "solid",
-					bgColor: "black",
-					pt: "2",
-					pb: "2",
-					pl: "6",
-					pr: "12",
-					textTransform: "lowercase",
-				})}
-			>
-				New products
-			</h2>
-			<ProductList products={products} />
-		</section>
-	);
+	return <Products products={products} />;
 }

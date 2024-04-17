@@ -1,5 +1,5 @@
-import { Title } from "@/components/atoms/Title";
-import { ListOfTerms } from "@/components/atoms/ListOfTerms";
+import { Title } from "@/components/Title";
+import { ListOfTerms } from "@/components/ListOfTerms";
 import { type Term } from "@/types";
 
 const termsOfUse: Term[] = [
